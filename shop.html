@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<title>HTML5 Local Storage Project</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="/script.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body onload="doShowAll()">
+	
+	
+
+
+	<h2>Shopping Website Project</h2>
+	<p>Insert items and quantity for your shopping cart. </p>
+	
+
+		<div id="main">
+			<table>
+				<tr>
+
+					<td><b>Item:</b><input type="text" name="name"></td>
+					<td><b>Quantity:</b><input type="text" name="data"></td>
+					
+
+				</tr>
+
+				<tr>
+					<td>
+					    <input type="button" value="Save"   onclick="SaveItem()"> 
+					    <input type="button" value="Update" onclick="ModifyItem()"> 
+					    <input type="button" value="Delete" onclick="RemoveItem()">
+						<input type="button" value="Get Selected" onclick="GetSelected()" />
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="items_table">
+			<h3>Shopping List</h3>
+			<table id="list"></table>
+			<p>
+				<label><input type="button" value="Clear" onclick="ClearAll()">
+					<i>* Delete all items</i></label>
+			</p>
+		</div>
+		<div id="items_table"> 
+			<form method="post"><input type="submit" value="Get Table"></form>
+			<table id="table1">
+				
+				<!-- <tr>
+					<th><b>BrandName</b></th>
+					<th><b>Storage </b></th>
+					<th><b>Price </b></th>
+				</tr>
+				<tr>
+					<td name="brand"></td><td>32 GB</td><td>50$</td><td><img src="C:\Users\abc\Desktop\html-mongo\Sandisk.jfif" ></td><td><input  type="button" value="Select" > </td>
+				</tr>
+				<tr>
+					<td>Sandisk</td><td>64 GB</td><td>95$</td><td><img src="Sandisk.jfif" ></td><td><input id="check" type="button" value="Select"></td>
+
+				</tr>
+				<tr>
+					<td>Sandisk</td><td>128 GB</td><td>170$</td><td><img src="Sandisk.jfif" ></td><td><input id="check" value="Select" type="button"></td>
+				</tr>
+				<tr>
+					<td>Kingston</td><td>32 GB</td><td>40$</td><td><img src="Kingston.jfif"></td><td><input id="check" value="Select" type="button"></td>
+
+				</tr>
+				<tr>
+					<td>Kingston</td><td>64 GB</td><td>78$</td><td><img src="Kingston.jfif"></td><td><input id="check" value="Select" type="button"></td>
+
+				</tr>
+				<tr>
+					<td>Kingston</td><td>128 GB</td><td>132$</td><td><img src="Kingston.jfif"></td><td><input id="check" value="Select" type="button"></td>
+				</tr>
+				<tr>
+					<td>Ledger</td><td>32 GB</td><td>120$</td><td><img src="Ledger.jfif"></td><td><input id="check" value="Select" type="button"></td>
+
+				</tr>
+				<tr>
+					<td>Ledger</td><td>64 GB</td><td>230$</td><td><img src="Ledger.jfif"></td><td><input id="check" value="Select" type="button"></td>
+
+				</tr>
+				<tr>
+					<td>Ledger</td><td>128 GB</td><td>450$</td><td><img src="Ledger.jfif"></td><td><input id="check" value="Select" type="button"></td>
+				</tr>
+				<tr>
+					<td>Kioxia</td><td>32 GB</td><td>46$</td><td><img src="Kioxia 32gb.jfif"></td><td><input id="check" value="Select" type="button"></td>
+
+				</tr>
+				<tr>
+					<td>Kioxia</td><td>64 GB</td><td>82$</td><td><img src="Kioxia 64gb.jfif"></td><td><input id="check" value="Select" type="button"></td>
+
+				</tr>
+				<tr>
+					<td>Kioxia</td><td>128 GB</td><td>170$</td><td><img src="Kioxia 128gb.jfif"></td><td><input type="button" value="Select"></td>
+				</tr> -->
+
+				
+
+			</table>
+			<br>
+			
+		</div>
+	
+
+</body>
+</html>
