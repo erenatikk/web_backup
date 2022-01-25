@@ -2,10 +2,15 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const fs = require('fs');
+const tempfile = "temp"
+
+
 var Schema = mongoose.Schema;
 
 
 const { MongoClient } = require("mongodb");
+const { render } = require("express/lib/response");
 
 app.use(bodyParser.urlencoded({extended:true}));
 var urldb = "mongodb+srv://eren_atik:zilean62@cluster0.u8mtu.mongodb.net/proje"
@@ -33,7 +38,8 @@ module.exports = User;
 const Products = mongoose.model("Products" , amountSchema);
 module.exports = Products;
 
-
+app.set("view engine", "ejs");
+app.set("/","./app_server/views");
 
 
 app.get("/",function(req,res){
@@ -64,6 +70,7 @@ app.get("/adminpanel.html",function(req,res){
     res.sendFile(__dirname + "/adminpanel.html")
 })
 
+
 app.post("/", function(req, res){
   let  NewUser = new User({
       email:req.body.email,
@@ -72,7 +79,6 @@ app.post("/", function(req, res){
   NewUser.save(console.log("saved"));
   res.redirect("/shop.html");
 })
-
 
 app.post("/Login.html" ,function(req,res){
     console.log("appgir");
@@ -149,20 +155,28 @@ app.post("/adminpanel.html" ,function (req,res) {
     
 })
 
-app.post("/shop.html", function(req,res){
+app.post("/shop.html", function(req,res){console.log("2")
     MongoClient.connect(urldb,function(err, db){var dbo = db.db('proje');
-    dbo.collection("products").find({}).toArray((err, data) => {
+    console.log("3")
+            dbo.collection("products").find({}).toArray((err, data) => { console.log("1")
             if(err) throw error
             var strTable = '';
             for(i = 0; i < data.length; i++){
                 strTable += '<tr><td>'+data[i].brand+'</td><td>'+data[i].size+'</td><td>'+data[i].priceperone+'₺</td><td>'+data[i].amount+'</td></tr>';
+                fs.appendFile('datas.txt' , strTable , function(err) {
+                    if (err) throw err;
+                   // console.log("txt");
+                } )
             }
-            console.log(strTable);             
-    });
+            res.redirect("/shop.html");
+            
+            //res.render('shop.html', {product: strTable});
+            });
+        });
  })
 
    
-})
+
 
 app.listen(3000,function(){
     console.log("server is running on 3000")

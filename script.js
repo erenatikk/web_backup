@@ -1,7 +1,6 @@
 const req = require("express/lib/request");
 const { append } = require("express/lib/response");
-// const http = require("http");
-const parse = require('node-html-parser').parse;
+
 
 function SaveItem() {
 
@@ -112,9 +111,8 @@ function Select(){
 	}
 }
 
-function TableOnload() {
-	
-	var xhr = new XMLHttpRequest();
-xhr.open("POST", "#");
-xhr.send(data);
+function FillTheTable(){
+	var frFile = new FileReader();
+	alert(frFile.readAsText("datas.txt"));
+	document.getElementById("tblProducts").innerHTML = frFile.readAsText("datas.txt");
 }
